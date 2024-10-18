@@ -1,0 +1,666 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+    color: #333;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for dark mode */
+}
+
+/* Container */
+.container {
+    width: 85%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #333; /* Dark background for the navbar */
+    padding: 15px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Ensure it stays above other content */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+/* Navigation Bar */
+nav {
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Center vertically */
+    width: 85%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the nav */
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around; /* Space links evenly */
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px; /* Space between items */
+}
+
+nav ul li a {
+    color: #fff; /* White text for better contrast */
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 30px; /* Rounded edges for links */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Smooth transition for hover */
+}
+
+/* Hover effect */
+nav ul li a:hover {
+    background-color: #6a1b9a; /* New background on hover */
+    color: #ffffff; /* Keep text white on hover */
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+/* Active Link Highlighting */
+nav ul li a.active {
+    background-color: #6a1b9a; /* Active link background color */
+    color: #ffffff; /* Active link text color */
+}
+
+/* Responsive Menu Styles */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff; /* Logo color */
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Show menu toggle on mobile */
+    }
+
+    nav ul {
+        display: none; /* Hide menu items by default */
+        flex-direction: column;
+        background-color: #333; /* Dark background for dropdown */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Space between items */
+    }
+
+    nav.open ul {
+        display: block; /* Show menu items when open */
+        animation: slide-down 0.3s ease forwards; /* Animation effect */
+    }
+}
+
+/* Dropdown Animation */
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Fade-in and Slide-in Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Hover Effects */
+.btn-contact, .btn-download {
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-contact:hover, .btn-download:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slight grow on hover */
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212; /* Dark background */
+    color: #e0e0e0; /* Light text */
+}
+
+body.dark-mode header {
+    background-color: #1e1e1e; /* Darker header */
+}
+
+body.dark-mode nav ul li a {
+    color: #e0e0e0; /* Light text for links */
+}
+
+body.dark-mode nav ul li a:hover {
+    background-color: #6a1b9a; /* Hover effect */
+    color: #ffffff; /* Bright text on hover */
+}
+
+body.dark-mode .btn-contact,
+body.dark-mode .btn-download {
+    background-color: #1e1e1e; /* Dark button background */
+    color: #ffffff; /* Light button text */
+}
+
+body.dark-mode .btn-contact:hover,
+body.dark-mode .btn-download:hover {
+    background-color: #555; /* Button hover color */
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #6a1b9a; /* Toggle button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* About Section */
+#about {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #f9f9f9, #e0e0e0); /* Subtle gradient */
+    text-align: center;
+}
+
+.about-container {
+    max-width: 1200px; /* Max width for the content */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+}
+
+.about-content {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Align items vertically centered */
+    justify-content: center; /* Center content horizontally */
+    flex-direction: row; /* Arrange items in a row */
+    margin-top: 20px; /* Space above content */
+}
+
+.profile-photo {
+    width: 150px; /* Set width for the profile photo */
+    height: 150px; /* Set height for the profile photo */
+    border-radius: 50%; /* Circular image */
+    border: 3px solid #007bff; /* Border around the image */
+    object-fit: cover; /* Maintain aspect ratio */
+    margin-right: 20px; /* Space between image and text */
+}
+
+.about-description {
+    text-align: left; /* Left-align text for readability */
+}
+
+.about-description p {
+    font-size: 1.1em; /* Increase font size for readability */
+    line-height: 1.6; /* Improve line height for better readability */
+    margin-bottom: 15px; /* Space below each paragraph */
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    margin-bottom: 40px; /* Space below skills section */
+}
+
+.skill-item {
+    background-color: #fff; /* White background for skill items */
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation effects */
+}
+
+.skill-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.skill-icon {
+    font-size: 2.5em; /* Icon size */
+    color: #008080; /* Teal color for icons */
+    margin-bottom: 10px; /* Space below icon */
+}
+
+.skill-item p {
+    font-size: 1.2em; /* Font size for skill names */
+    margin: 0; /* Remove default margin */
+}
+
+/* Progress Bar Styles */
+.progress-bar {
+    background-color: #e0e0e0; /* Background for progress bar */
+    border-radius: 10px;
+    height: 10px; /* Height of the progress bar */
+    margin-top: 10px; /* Space above the progress bar */
+}
+
+.progress {
+    background-color: #ff5722; /* Orange color for the progress fill */
+    height: 100%; /* Fill the height of the progress bar */
+    border-radius: 10px;
+    transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+/* Soft Skills Specific Styling */
+.soft-skills {
+    margin-top: 40px; /* Space above soft skills */
+}
+
+/* Achievements Section */
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    margin-top: 30px; /* Space above the achievements grid */
+}
+
+.achievement-item {
+    background-color: #fff; /* White background for achievement items */
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation effects */
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.achievement-item i {
+    font-size: 2.5em; /* Icon size */
+    color: #ff5722; /* Use vibrant orange color for icons */
+    margin-bottom: 15px; /* Space below icon */
+}
+
+.achievement-item h3 {
+    font-size: 1.2em; /* Font size for achievement titles */
+    margin: 10px 0; /* Space above and below title */
+}
+
+.achievement-item p {
+    font-size: 1em; /* Font size for achievement descriptions */
+    color: #555; /* Dark gray for text */
+    margin: 0; /* Remove default margin */
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px; /* Space between items */
+    margin-top: 30px; /* Space above projects grid */
+}
+
+.project-item {
+    background-color: #fff; /* White background for project items */
+    border-radius: 10px; /* Rounded corners */
+    padding: 20px; /* Padding inside project items */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation effects */
+    position: relative; /* For positioning the icon */
+}
+
+.project-item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.project-icon {
+    font-size: 2em; /* Icon size */
+    color: #008080; /* Teal color for icons */
+    position: absolute; /* Positioning for overlay effect */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    border-radius: 50%; /* Circular background */
+    padding: 10px; /* Padding around icon */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.project-item:hover .project-icon {
+    transform: scale(1.1); /* Slightly enlarge the icon on hover */
+}
+
+.project-image {
+    width: 100%; /* Responsive image */
+    height: 200px; /* Fixed height for uniformity */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below the image */
+}
+
+.project-item h3 {
+    font-size: 1.2em; /* Font size for project titles */
+    margin: 10px 0; /* Space above and below title */
+}
+
+.project-item p {
+    font-size: 1em; /* Font size for project descriptions */
+    color: #555; /* Dark gray for text */
+    margin: 5px 0; /* Space above and below description */
+}
+
+.technologies {
+    font-size: 0.9em; /* Font size for technology names */
+    color: #008080; /* Teal color for technologies */
+    margin-top: 10px; /* Space above technology text */
+}
+
+.btn-project {
+    display: inline-block; /* Button styling */
+    background-color: #ff5722; /* Button background color */
+    color: #fff; /* Button text color */
+    padding: 10px 15px; /* Padding for the button */
+    border-radius: 5px; /* Rounded edges for the button */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+    margin-top: 10px; /* Space above the button */
+}
+
+.btn-project:hover {
+    background-color: #e64a19; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+/* Contact Section */
+#contact {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 50px 0; /* Padding for top and bottom */
+}
+
+.contact-card {
+    background-color: #fff; /* White background for the contact card */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-bottom: 40px; /* Space below the contact card */
+}
+
+.contact-card h3 {
+    font-size: 1.5em; /* Font size for heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+.contact-card p {
+    font-size: 1em; /* Font size for description */
+    color: #555; /* Dark gray for text */
+    margin-bottom: 20px; /* Space below description */
+}
+
+.contact-form {
+    display: flex; /* Flexbox for form layout */
+    flex-direction: column; /* Column layout for form fields */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form groups */
+}
+
+.form-group label {
+    margin-bottom: 5px; /* Space below label */
+    font-weight: bold; /* Bold label */
+}
+
+.form-group input,
+.form-group textarea {
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded edges */
+    padding: 10px; /* Padding for inputs */
+    width: 100%; /* Full width */
+}
+
+.form-group textarea {
+    resize: none; /* Disable resizing */
+}
+
+.btn-submit {
+    background-color: #008080; /* Teal color for button */
+    color: #fff; /* White text */
+    padding: 10px 15px; /* Padding for button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded edges */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.btn-submit:hover {
+    background-color: #006f6f; /* Darker shade on hover */
+}
+
+.social-icons {
+    text-align: center; /* Center social icons */
+    margin-top: 30px; /* Space above social icons */
+}
+
+.social-icons a {
+    color: #008080; /* Teal color for icons */
+    margin: 0 10px; /* Space between icons */
+    font-size: 2em; /* Icon size */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
+.social-icons a:hover {
+    transform: scale(1.2); /* Grow effect on hover */
+    color: #ff5722;
+}
+
+/* Resume Section */
+#resume {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 50px 0; /* Padding for top and bottom */
+}
+
+.resume-summary {
+    margin-bottom: 30px; /* Space below summary */
+    text-align: center; /* Center align text */
+}
+
+.resume-summary p {
+    font-size: 1.1em; /* Font size for summary */
+    color: #555; /* Dark gray for text */
+    margin: 0; /* Remove default margin */
+}
+
+.resume-details {
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Stack cards vertically */
+    gap: 20px; /* Space between cards */
+}
+
+.resume-card {
+    background-color: #fff; /* White background for resume card */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animation effects */
+}
+
+.resume-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.resume-card h3 {
+    font-size: 1.5em; /* Font size for heading */
+    margin-bottom: 15px; /* Space below heading */
+    display: flex; /* Flexbox for icon alignment */
+    align-items: center; /* Center icon vertically */
+}
+
+.resume-card h3 i {
+    margin-right: 10px; /* Space between icon and text */
+    color: #008080; /* Teal color for icons */
+}
+
+.resume-card ul {
+    list-style-type: none; /* Remove default list styling */
+    padding-left: 0; /* Remove left padding */
+}
+
+.resume-card ul li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+.resume-card ul li strong {
+    font-weight: bold; /* Bold font for job titles */
+}
+
+.resume-download {
+    text-align: center; /* Center align text */
+    margin-top: 30px; /* Space above download section */
+}
+
+.btn-download {
+    display: inline-block; /* Button styling */
+    background-color: #008080; /* Teal color for button */
+    color: #fff; /* White text */
+    padding: 10px 15px; /* Padding for the button */
+    border-radius: 5px; /* Rounded edges for the button */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.btn-download:hover {
+    background-color: #006f6f; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight grow effect on hover */
+}
+
+.btn-download i {
+    margin-right: 5px; /* Space between icon and text */
+}
+
+
+/* Footer */
+footer {
+    background-color: #333; /* Dark background for footer */
+    color: #fff; /* White text color */
+    padding: 30px 0; /* Padding for top and bottom */
+    text-align: center; /* Center text */
+}
+
+.footer-content {
+    max-width: 1200px; /* Max width for content */
+    margin: 0 auto; /* Center footer content */
+    padding: 0 20px; /* Padding for left and right */
+}
+
+.footer-links,
+.footer-nav {
+    margin: 15px 0; /* Space between sections */
+}
+
+.footer-links a,
+.footer-nav a {
+    color: #fff; /* White text for links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Space between links */
+    transition: color 0.3s; /* Smooth transition */
+}
+
+.footer-links a:hover,
+.footer-nav a:hover {
+    color: #ff5722; /* Change color on hover */
+}
+
+.footer-nav a {
+    font-weight: bold; /* Bold font for navigation links */
+}
+
+.footer-content p {
+    margin-top: 20px; /* Space above copyright notice */
+    font-size: 0.9em; /* Smaller font size for copyright */
+}
+
+
+/* Responsive Menu Styles */
+.menu-toggle {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #f9f9f9;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    nav.open ul {
+        display: block;
+    }
+}
